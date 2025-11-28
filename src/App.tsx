@@ -25,7 +25,7 @@ function App() {
   return (
     <>
       <Header />
-      <FilterCountryContext.Provider value={filterCountry}>
+      <FilterCountryContext.Provider value={{ filterCountry, dispatch }}>
       <Routes>
         <Route path="/all_countries" element={<FetchCountries />} />
         </Routes>
