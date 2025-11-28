@@ -1,0 +1,37 @@
+export interface DetailedCountry {
+  name: any;
+  tld: any[];
+  cca2: string;
+  ccn3: string;
+  cioc: string;
+  independent: boolean;
+  status: string;
+  unMember: boolean;
+  currencies: any;
+  idd: any;
+  capital: any[];
+  altSpellings: any[];
+  region: string;
+  subregion: string;
+  languages: any;
+  latlng: any[];
+  landlocked: boolean;
+  borders: any[];
+  area: number;
+  demonyms: any;
+  cca3: string;
+  translations: any;
+  flag: string;
+  maps: any;
+  population: number;
+  gini: any;
+  fifa: string;
+  car: any;
+  timezones: any[];
+  continents: any[];
+  flags: any;
+  coatOfArms: any;
+  startOfWeek: string;
+  capitalInfo: any;
+  postalCode: any;
+}

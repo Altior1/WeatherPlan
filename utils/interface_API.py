@@ -34,7 +34,6 @@ def main():
         data = resp.json()
         print("Fetched API response successfully.")
         # Extract keys and types for the root interface
-        interface_name = "ApiResponse"
         interface_keys = data[0].keys()
         with open(output_file, "w") as f:
             f.write(f"export interface {interface_name} " + "{\n")
