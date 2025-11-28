@@ -1,5 +1,5 @@
 import useFetch from "../hooks/useFetch";
-import Country from "./countries";
+import Country from "../components/Countries";
 import { useContext } from "react";
 import { FilterCountryContext } from "../contexts/FilterCountryContext";
 
@@ -12,9 +12,9 @@ function filterCountries(countries: any[], filter: string|null) {
 
 export default function FetchCountries() {
     const { data, loading, error } = useFetch("https://restcountries.com/v3.1/all?fields=name,flags");
-    const filter = useContext(FilterCountryContext);
+    const { filterCountry } = useContext(FilterCountryContext);
     
-    const filteredData = filterCountries(data || [], filter);
+    const filteredData = filterCountries(data || [], filterCountry);
     if (loading) return <div>Loading...</div>;
     if (error) return <div>Error: {error}</div>;
 

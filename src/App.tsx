@@ -4,6 +4,7 @@ import { Routes, Route } from 'react-router-dom';
 import FetchCountries from './components/FetchCountries';
 import Header from './components/Header';
 import { FilterCountryContext } from './contexts/FilterCountryContext';
+import SearchBar from './components/SearchBar';
 
 const initialFilterState: string | null = null;
 
@@ -27,9 +28,13 @@ function App() {
       <Header />
       <FilterCountryContext.Provider value={{ filterCountry, dispatch }}>
       <Routes>
-        <Route path="/all_countries" element={<FetchCountries />} />
-        </Routes>
-        </FilterCountryContext.Provider>
+          <Route path="/all_countries" element={<>
+            <SearchBar />
+            <FetchCountries />
+          </>}>
+          </Route>
+      </Routes>
+      </FilterCountryContext.Provider>
     </>
   )
 }

@@ -1,22 +1,27 @@
-import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { useContext } from 'react';
 import { FilterCountryContext } from '../contexts/FilterCountryContext';
 
 export default function SearchBar() {
     const { dispatch } = useContext(FilterCountryContext);
-    const [form, handleForm] = useForm()
+    const {register, handleSubmit, formState: {errors}} = useForm()
 
-    const onSubmit = () => {
-        dispatch(handleForm(form));
-    }
+    const onSubmit = (data: any) => {
+        dispatch({ type: 'SET_FILTER', payload: data.filter } as any);
+    };
     return (
-        <div>
-            <form onSubmit={handleForm(onSubmit)}>
-                <label for>
-
-                </label>
+        
+            <form onSubmit={handleSubmit(onSubmit)}>
+                <input
+                    type="text"
+                    placeholder="Search for a country..."
+                    {...register('filter', {
+                        required: false
+                    }
+                    )}
+                />
+                <button type="submit">Search</button> 
             </form>
-        </div>
+
     )
 }
